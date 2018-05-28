@@ -2,7 +2,7 @@
     <div class="nav has-shadow">
         <div class="container">
             <div class="nav-left">
-                <span class="nav-item"><h2>CTED Webmaps App</h2></span>
+                <span class="nav-item"><h2>My Web App</h2></span>
             </div>
 
             <span class="nav-toggle" v-on:click="toggleNav" v-bind:class="{ 'is-active': isActive }">

@@ -1,8 +1,8 @@
 [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 
-CTED Express application generator.
+Custom Express application generator.
 
-This repo belongs to the CTED Custom Express App Generator.
+This repo belongs to the Custom Express App Generator.
 This custom generator creates a template project with two parts:
 1. Server: an express/node backend app
 2. Client: a vue-cli frontend app (to be initialized using ```vue init```)
@@ -15,13 +15,13 @@ This custom generator creates a template project with two parts:
 ## Installation
 
 ```sh
-$ npm install -S -g "git+ssh://git@github.com:CTED/cted-custom-generator.git"
+$ npm install -S -g "git+ssh://git@github.com:afshanaman81/custom-node-vue-generator.git"
 ```
 
 OR
 
 ```sh
-$ npm install -S -g "http://git@github.com/CTED/cted-custom-generator.git"
+$ npm install -S -g "https://github.com/afshanaman81/custom-node-vue-generator.git"
 ```
 
 ## Create a custom app from the custom generator

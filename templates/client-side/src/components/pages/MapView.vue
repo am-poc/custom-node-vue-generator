@@ -1,21 +1,21 @@
 <template>
     <div id="map-view" class="page-background">
-        <cted-nav-bar></cted-nav-bar>
+        <aa-nav-bar></aa-nav-bar>
         <div id="page-content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 border">
-                        <cted-search-menu></cted-search-menu>
+                        <aa-search-menu></aa-search-menu>
                     </div>
                     <div class="col-md-9 border">
-                        <cted-map-view></cted-map-view>
+                        <aa-map-view></aa-map-view>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="search-results">
-            <cted-show-data v-if="showData"></cted-show-data>
+            <aa-show-data v-if="showData"></aa-show-data>
         </div>
     </div>
 </template>

@@ -1,10 +1,10 @@
-This web app is generated using the CTED Custom Express App Generator.
-The GitHub repo is at: https://github.com/CTED/cted-custom-generator
+This web app is generated using the Custom Express App Generator.
+The GitHub repo is at: https://github.com/afshanaman81/custom-node-vue-generator
 This custom generator creates a template project with two parts:
 1. Server
 2. Client
 
-It uses the cted custom cli to generate the server side.
+It uses the custom cli to generate the server side.
 
 	Next Steps For the server-side:
 	1. Change directory to 'yourprojectname/server'

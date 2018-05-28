@@ -7,7 +7,7 @@ generate an app using the express-generator
 	reverse-engineering
 
 modify the code and make your own custom generator (notes on modifying is somewhere else)
-	location: C:\Users\aa163\WebstormProjects\3-CustomWebAppGenerator\cted-custom-generator
+	location: C:\Users\aa163\WebstormProjects\1- Support Projects\aa-custom-generator
 	(express-cli.js and a bunch of other files and folders)
 
 
@@ -16,7 +16,7 @@ modify the code and make your own custom generator (notes on modifying is somewh
 	// DONE: replace the master branch by the other
 	// TODO: how to install the client-side dependencies easily? provide the package.json
 	// TODO: how to move the images in the src/assets correctly?
-	// DONE: change the name of the program/command from 'express' to 'cted-express'
+	// DONE: change the name of the program/command from 'express' to 'aa-express'
 	// TODO: single npm command to start both server and client
 	// TODO: bash script to run the clientside commands
 	// DONE: author a package.json (add the 'scripts' block from the ctd-custom-vue-express-app server/package.json)
@@ -30,11 +30,11 @@ host the code for the custom generator on github (you know how to do that)
 
 install the package for custom generator globally on your development environment
 	Link: https://stackoverflow.com/questions/10386310/how-to-install-a-private-npm-module-without-my-own-registry
-	command: npm install -S -g "git+ssh://git@github.com:CTED/cted-custom-generator.git"
+	command: npm install -S -g "git+ssh://git@github.com:afshanaman81/custom-node-vue-generator.git"
 
 
 (If Needed) to install from a specific branch (e.g installing the vue-express combo app)
-	command: npm install -S -g "git+ssh://git@github.com:CTED/cted-custom-generator.git#cted-vue-express-generator"
+	command: npm install -S -g "git+ssh://git@github.com:afshanaman81/custom-node-vue-generator.git#branch-one"
 
 create a custom app from the custom generator
 	create a folder for you project

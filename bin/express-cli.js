@@ -155,7 +155,7 @@ function createApplication (name, dir) {
 	// write files
 	writeFiles(dir, app, www, pkg)
 	
-	// Mount Common CTED Routes
+	// Mount Common Custom Routes
 	mountRoutes(app)
 	
 	// Show prompts for next steps
@@ -194,7 +194,7 @@ function generatePakcageFile(app, name){
 	app.locals.modules.bodyParser = 'body-parser'
 	app.locals.modules.expressValidator = 'express-validator'
 	app.locals.modules.passport = 'passport'
-	// CTED modules
+	// Custom modules
 	app.locals.modules.pgDB = './db/pg'
 	app.locals.modules.mongoDB = './db/mongo'
 	
@@ -251,7 +251,7 @@ function createFolders(dir){
 	mkdir(dir, 'server')
 	mkdir(dir, 'client')
 	
-	// add serverside folders, common to CTED projects
+	// add serverside folders, common to My projects
 	mkdir(dir, 'server/auth')
 	mkdir(dir, 'server/bin')
 	mkdir(dir, 'server/config')

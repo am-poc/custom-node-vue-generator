@@ -1,24 +1,24 @@
 <template>
     <div id="admin" class="page-background">
-        <cted-nav-bar></cted-nav-bar>
+        <aa-nav-bar></aa-nav-bar>
 
         <div id="page-content">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 border">
-                        <cted-left-menu v-on:change="catchValues"></cted-left-menu>
+                        <aa-left-menu v-on:change="catchValues"></aa-left-menu>
                     </div>
 
                     <div class="col-md-8 border">
                         <h1>Welcome to the Admin console</h1>
 
-                        <cted-add-user  v-if="itemId==1 & itemName=='User'"></cted-add-user>
+                        <aa-add-user  v-if="itemId==1 & itemName=='User'"></aa-add-user>
 
-                        <cted-get-data v-if="itemId==0 & itemName=='Users'"
-                                        :src=itemName :url=urlPrefix></cted-get-data>
+                        <aa-get-data v-if="itemId==0 & itemName=='Users'"
+                                        :src=itemName :url=urlPrefix></aa-get-data>
 
-                        <cted-get-data v-if="itemId==0 & itemName=='Sessions'"
-                                        :src=itemName :url=urlPrefix></cted-get-data>
+                        <aa-get-data v-if="itemId==0 & itemName=='Sessions'"
+                                        :src=itemName :url=urlPrefix></aa-get-data>
 
                         <!--to instantiate same component several times: https://css-tricks.com/intro-to-vue-2-components-props-slots/->
                         <!--data sharing with components: https://www.youtube.com/watch?v=PPmg7ntQjzc-->

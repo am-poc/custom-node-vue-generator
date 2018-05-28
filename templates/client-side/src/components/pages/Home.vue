@@ -1,6 +1,6 @@
 <template>
     <div id="home">
-        <cted-nav-bar></cted-nav-bar>
+        <aa-nav-bar></aa-nav-bar>
         <!--https://github.com/lukaszflorczak/vue-agile-->
         <agile :arrows="false" :speed="750" :dots="false"
                :timing="'linear'" :fade="true"
@@ -22,7 +22,7 @@
         <div id="page-content">
             <div class="logo text-center">
                 <img class="img-rounded" alt="Company Logo" src="../../assets/logo.jpg"/>
-                <h1>CTED App Name</h1>
+                <h1>My App Name</h1>
                 <h3><em>{{msg}}</em></h3><br>
             </div>
 

@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <div class="card card-container img-background">
                             <img id="profile-img" class="profile-img-card" src="../../assets/logo.jpg" />
-                            <h5 class="msg-color">Welcome to CTED App</h5>
+                            <h5 class="msg-color">Welcome to My Web App</h5>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="register-user" class="card card-container">
-                            <cted-add-user></cted-add-user>
+                            <aa-add-user></aa-add-user>
                         </div>
                     </div>
                 </div>

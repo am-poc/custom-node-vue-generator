@@ -31,13 +31,13 @@ Vue.prototype.$hostname = 'http://localhost:3000/'   // TODO: this needs to be u
 
 // Components
 // for building components: https://www.youtube.com/watch?v=FWQSuskE5UA
-Vue.component('cted-nav-bar', NavBar)
-Vue.component('cted-add-user', AddUser)
-Vue.component('cted-left-menu', AdminLeftMenu)
-Vue.component('cted-search-menu', SearchMenu)
-Vue.component('cted-get-data', GetServerData)
-Vue.component('cted-show-data', ShowData)
-Vue.component('cted-map-view', InstaMap)
+Vue.component('aa-nav-bar', NavBar)
+Vue.component('aa-add-user', AddUser)
+Vue.component('aa-left-menu', AdminLeftMenu)
+Vue.component('aa-search-menu', SearchMenu)
+Vue.component('aa-get-data', GetServerData)
+Vue.component('aa-show-data', ShowData)
+Vue.component('aa-map-view', InstaMap)
 
 new Vue({
 	el: '#app',

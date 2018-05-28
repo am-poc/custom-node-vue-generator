@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="columns">
                     <div class="column">
-                        <p>Copyright © 2015 - 2018 CTED, NYU Abu Dhabi, UAE. All rights reserved. </p>
+                        <p>Copyright © 2015 - 2018 Ash Martin, Brighton, CO. All rights reserved. </p>
                     </div>
                     <div class="column has-text-right">
                         <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
