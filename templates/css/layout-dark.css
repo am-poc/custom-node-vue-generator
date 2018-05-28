@@ -1,0 +1,268 @@
+body{
+	font: 14px Helvetica, Arial, "Lucida Grande", sans-serif ;
+	overflow-x: hidden;
+	color: black;   /*this color is also used as default border-color */
+}
+
+
+a {color: #582D87;}
+a:hover,
+a:active{color: #582D87;}
+hr{border-top: 1px solid #293a46;}
+table > tbody{cursor: pointer;}
+
+.full-size{width: 100%;}
+.uniform-width{width: 10vw;}
+.dt-left{text-align: left !important;}
+.no-scrollX{overflow-x:hidden !important;}
+.no-padding{padding: 0;}
+.input-micro{width: 75px;}
+.btn:not(.btn-default){color: black !important;}
+.rejected{color: red;}
+.accepted{color: green;}
+.modified{color: orange;}
+/*.background-accent{background: yel;}*/
+/*darkslateblue*/
+/*darkslategrey*/
+/*steelblue*/
+.background-page{background: whitesmoke;}
+
+.collapse.in{
+	border-style: solid;
+	border-width: 1px;
+	border-color: white;
+}
+.centered{
+	justify-content: center;
+	white-space: nowrap;
+}
+
+table > tbody,
+input,
+select{
+	background-color: white;
+	color: #293a46  !important;
+	text-decoration: none;
+}
+/*admin page*/
+.left-menu a {
+	color: black !important;
+}
+
+.admin {
+	color: black !important;
+}
+
+/*end of admin page*/
+
+/*home*/
+.searchResultsHome{
+	color:black !important;
+	background-color:rgba(211,211,211,.6)
+}
+
+/*end of home page*/
+
+/*custom scrollbar*/
+.customScroll::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	background-color: #F5F5F5;
+}
+
+.customScroll::-webkit-scrollbar-track {
+	background-color: #F5F5F5;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+}
+
+.customScroll::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(191,191,191,1);
+}
+/*end of custom scrollbar*/
+
+
+/* Index/Stats Page Left Menu */
+/*from MDL*/
+.display-title{
+	webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: block;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: stretch;
+	-ms-flex-pack: stretch;
+	justify-content: stretch;
+	line-height: normal;
+	padding: 16px;
+	-webkit-perspective-origin: 165px 56px;
+	perspective-origin: 165px 56px;
+	-webkit-transform-origin: 165px 56px;
+	transform-origin: 165px 56px;
+	box-sizing: border-box;
+}
+.filter-card-wide .display-title{
+	color: #fff;
+	height: 60px;
+	background-color: #FF5252;
+	font-size: 23px;
+	margin: 0;
+}
+.inner-container{
+	padding: 0 16px;
+	color: black;
+	overflow: hidden;
+	line-height: 18px;
+}
+
+
+#inspection-checkbox{
+	margin-left: 6px;
+	padding-top:10px;
+}
+#inspection-checkbox label{
+	margin-left: 10px;
+	min-width: 150px;
+	margin-bottom: 10px;
+}
+#showResultsButton{
+	margin: 10vh auto;
+	text-align: center;
+}
+
+#search-results{
+	color:black !important;
+}
+/*end of Index/Stats Page Left Menu*/
+
+
+
+/*Statistics Page */
+.display-text{
+	font-size: 1rem;
+	line-height: 18px;
+	overflow: hidden;
+	padding: 16px 16px 0px 16px;
+	width: 100%;
+}
+
+#userCard, #details-card{
+	background-color:grey;
+
+}
+#userCard div, #details-card div{
+	color:white;
+}
+
+/*end of Statistics Page Style */
+
+
+
+/*DataTable Style*/
+table.dataTable tbody tr:hover{
+	color: #FF5252;
+}
+
+/*end of DataTable Style*/
+
+
+/*Nav Bar*/
+.navbar{
+	margin: 0;
+}
+
+#gutter{
+	padding-bottom: 50px;
+}
+
+.navbar-default .navbar-brand{
+	margin-left: -15px;
+}
+
+/*Default Light Theme */
+.navbar-default{
+	color: #582D87;
+	border: none;
+	border-radius: 0;
+}
+.navbar-toggle{
+	background-color: white;
+	color: #582D87;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:hover{
+	color: #582D87;
+}
+.nav-link{
+	color: #FF5252 !important;
+}
+/*end of Nav Bar*/
+
+/*MEDIA QUERIES*/
+@media only screen and (max-width : 970px) {
+	/*TODO: is this needed here?*/
+	.resize-center{
+		text-align: center;
+		justify-content: center;
+	}
+	#theme-select{display: none !important;}
+}
+
+/*for mobile phones*/
+@media only screen and (max-width : 700px) {
+	body, p {font-size: 12px;}
+	.currentInfo > span {font-size: 12px;}
+	.section-buttons > .btn,
+	.submitDiv > .btn {max-width: 75px;}
+	.navbar-default .navbar-brand{font-size: 14px;}
+	#theme-select{display: none !important;}
+}
+
+/*for laptops*/
+@media only screen and (max-width : 1550px) {
+	body, p {font-size: small;}
+	table {font-size: 12px;}
+	.currentInfo > span {font-size: 12px;}
+	.mdl-button,
+	.btn{font-size: 11.5px;}
+	.uniform-width{width: 12vw;}
+	/*#theme-select{display: table-row !important;}*/
+}
+
+/*!*for tablets (768) and smaller laptops (1200)*!*/
+/*@media only screen and (max-width : 1200px) {*/
+/*body, p {font-size: medium;}*/
+/*.currentInfo > span {font-size: 12px;}*/
+/*.mdl-button,*/
+/*.btn{font-size: 12px;}*/
+/*.section-buttons > .btn,*/
+/*.submitDiv > .btn {max-width: 150px;}*/
+/*.uniform-width{width: 40vw;}*/
+/*#theme-select{display: table-cell !important;}*/
+/**/
+/*}*/
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	body, p {font-size: medium;}
+	.currentInfo > span {font-size: 12px;}
+	.mdl-button,
+	.btn{font-size: 12px;}
+	.section-buttons > .btn,
+	.submitDiv > .btn {max-width: 150px;}
+	.uniform-width{width: 40vw;}
+	body, p{ font-size: x-small;}
+	.uniform-width{width: 30vw;}
+	#theme-select{display: none !important;}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	body, p{ font-size: x-small;}
+	.uniform-width{width: 14vw;}
+	#theme-select{display: table-cell !important;}
+
+}
+

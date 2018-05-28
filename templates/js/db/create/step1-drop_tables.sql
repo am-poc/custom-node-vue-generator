@@ -1,0 +1,14 @@
+﻿-- DROP enums
+DROP TYPE IF EXISTS user_role CASCADE;
+
+-- DROP relations
+DROP SEQUENCE IF EXISTS users_gid_seq CASCADE;
+DROP SEQUENCE IF EXISTS sessions_gid_seq CASCADE;
+
+-- DROP tables
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS sessions CASCADE;
+
+
+
+

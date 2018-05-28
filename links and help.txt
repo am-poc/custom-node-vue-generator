@@ -1,0 +1,77 @@
+download the express-generator
+	Link: https://github.com/expressjs/generator
+	command: yarn add global express-generator (installs globally)
+
+generate an app using the express-generator
+	compare the generated app's code to the code of the generator and do some
+	reverse-engineering
+
+modify the code and make your own custom generator (notes on modifying is somewhere else)
+	location: C:\Users\aa163\WebstormProjects\3-CustomWebAppGenerator\cted-custom-generator
+	(express-cli.js and a bunch of other files and folders)
+
+
+	the serverside app.js (entry point for node) is authored using the file templates/js/app.js.ejs
+
+	// DONE: replace the master branch by the other
+	// TODO: how to install the client-side dependencies easily? provide the package.json
+	// TODO: how to move the images in the src/assets correctly?
+	// DONE: change the name of the program/command from 'express' to 'cted-express'
+	// TODO: single npm command to start both server and client
+	// TODO: bash script to run the clientside commands
+	// DONE: author a package.json (add the 'scripts' block from the ctd-custom-vue-express-app server/package.json)
+	// DONE: author a comprehensive app.js (for the serverside)
+	// DONE: provide connection to both MongoDB and PostGres
+	// DONE: provide a .gitignore and .env static files for the serverside
+	// DONE: create the 'src' folder for the clientside (copy over the src folder of the ctd-custom-vue-express-app)
+
+host the code for the custom generator on github (you know how to do that)
+
+
+install the package for custom generator globally on your development environment
+	Link: https://stackoverflow.com/questions/10386310/how-to-install-a-private-npm-module-without-my-own-registry
+	command: npm install -S -g "git+ssh://git@github.com:CTED/cted-custom-generator.git"
+
+
+(If Needed) to install from a specific branch (e.g installing the vue-express combo app)
+	command: npm install -S -g "git+ssh://git@github.com:CTED/cted-custom-generator.git#cted-vue-express-generator"
+
+create a custom app from the custom generator
+	create a folder for you project
+	cd to that folder
+	generate your custom project as follows:
+	command: express
+
+
+
+Client side with vue-cli
+
+	in the 'client' folder, initialize a vue template (such as webpack or pwa) using:
+	command: vue init webpack
+
+
+	For now: copy over the 'src' folder from the web-maps-nodejs project
+	For later: all the relevant files and folders for the client/src folder will be copied over somehow to somewhere in the template
+
+
+	Make sure the changes needed in the client/build/webpack.base.config.js for the bootstrap, jquery and font-awesome etc are done. these include the following lines:
+	const webpack = require('webpack')
+	plugins: [
+    		new webpack.ProvidePlugin({
+    			$: 'jquery',
+    			jquery: 'jquery',
+    			'window.jQuery': 'jquery',
+    			jQuery: 'jquery',
+    			Popper: ['popper.js', 'default'],
+    			Util: "exports-loader?Util!bootstrap/js/dist/util",
+    			Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+    		})
+    	]
+
+
+
+    Then install some additional dependencies, which somehow the initial yarn install missed!
+    command: npm install --save jquery vue bootstrap font-awesome axios vue-axios vue-agile popper.js
+
+
+
