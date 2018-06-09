@@ -29,7 +29,7 @@ $ npm install -S -g "https://github.com/afshanaman81/custom-node-vue-generator.g
 2. cd to that folder
 3. generate your custom project as follows:
 ```sh
-$ cted-express
+$ aa-express
 ```
 
 ## Next Steps
