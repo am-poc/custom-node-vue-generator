@@ -1,6 +1,6 @@
 [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 
-Custom Express application generator.
+Custom Express application generator (Being Developed by Afshan Aman starting April 2018)
 
 This repo belongs to the Custom Express App Generator.
 This custom generator creates a template project with two parts:
