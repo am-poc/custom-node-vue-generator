@@ -1,10 +1,10 @@
-This web app is generated using the Custom Express App Generator.
-The GitHub repo is at: https://github.com/afshanaman81/custom-node-vue-generator
+This web app is generated using the Custom Express App Generator. 
+The GitHub repo is at: https://github.com/afshanaman81/custom-node-vue-generator 
 This custom generator creates a template project with two parts:
 1. Server
 2. Client
 
-It uses the custom cli to generate the server side.
+It uses the cted custom cli to generate the server side.
 
 	Next Steps For the server-side:
 	1. Change directory to 'yourprojectname/server'
@@ -32,18 +32,18 @@ It uses the vue-cli to generate the client side.
 			? Generate project in current directory? Yes
 			? Project name client
 			? Project description "any description you want"
-			? Author
+			? Author (as you wish)
 			? Vue build standalone
 			? Install vue-router? Yes
 			? Use ESLint to lint your code? No
-			? Set up unit tests (as you wish)
-			? Setup e2e tests with Nightwatch? (as you wish)
+			? Set up unit tests (No, or as you wish)
+			? Setup e2e tests with Nightwatch? (No, or as you wish)
 			? Should we run `npm install` for you after the project has been created? (recommended) npm
 
 	3. Install client-side dependencies (make sure to be in 'client' folder)
 		> npm install
-	4. run the client.bat from the 'client' folder location
-		> client.bat
+	4. run the client-xxx from the 'client' folder location (there is a different file for each OS)
+		> client-windows.bat
 
 
 	5. Include the following line in the 'client/build/webpack.base.conf.js' on line 2

@@ -1,28 +1,31 @@
 <template>
     <div id="admin" class="page-background">
-        <aa-nav-bar></aa-nav-bar>
+        <cted-nav-bar></cted-nav-bar>
 
         <div id="page-content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 border">
-                        <aa-left-menu v-on:change="catchValues"></aa-left-menu>
+                    <div class="col-md-2 border">
+                        <cted-left-menu v-on:change="catchValues"></cted-left-menu>
                     </div>
 
-                    <div class="col-md-8 border">
+                    <div class="col-md-9 border">
                         <h1>Welcome to the Admin console</h1>
 
-                        <aa-add-user  v-if="itemId==1 & itemName=='User'"></aa-add-user>
+                        <cted-upload-file v-if="itemId==0 & itemName=='Upload GeoJSON'"/>
+                        <cted-add-feature v-if="itemId==0 & itemName=='Add Feature Manually'"/>
 
-                        <aa-get-data v-if="itemId==0 & itemName=='Users'"
-                                        :src=itemName :url=urlPrefix></aa-get-data>
+                        <cted-new-map     v-if="itemId==1 & itemName=='New Map'"/>
+                        <cted-new-layer   v-if="itemId==1 & itemName=='New Layer'"/>
 
-                        <aa-get-data v-if="itemId==0 & itemName=='Sessions'"
-                                        :src=itemName :url=urlPrefix></aa-get-data>
+                        <cted-get-maps    v-if="itemId==2 & itemName=='All Maps'" :src=itemName :url=urlPrefix />
+                        <cted-get-data    v-if="itemId==2 & itemName=='All Features'" :src=itemName :url=urlPrefix />
+                        <cted-get-files   v-if="itemId==2 & itemName=='All GeoJSON Files'" :src=itemName :url=urlPrefix />
 
-                        <!--to instantiate same component several times: https://css-tricks.com/intro-to-vue-2-components-props-slots/->
-                        <!--data sharing with components: https://www.youtube.com/watch?v=PPmg7ntQjzc-->
-                        <!--moving on-->
+
+                        <cted-get-data    v-if="itemId==3 & itemName=='All Users'" :src=itemName :url=urlPrefix />
+                        <cted-add-user    v-if="itemId==3 & itemName=='Add New'"/>
+
                     </div>
                 </div>
             </div>
@@ -41,9 +44,9 @@
 		},
 		methods:{
 			catchValues(values){
-				//console.log(values)
 				this.itemId = values[0]
 				this.itemName = values[1]
+                console.log([this.itemId, this.itemName])
 			}
 		}
 	}

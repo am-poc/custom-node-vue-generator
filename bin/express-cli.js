@@ -155,7 +155,7 @@ function createApplication (name, dir) {
 	// write files
 	writeFiles(dir, app, www, pkg)
 	
-	// Mount Common Custom Routes
+	// Mount Common CTED Routes
 	mountRoutes(app)
 	
 	// Show prompts for next steps
@@ -194,7 +194,7 @@ function generatePakcageFile(app, name){
 	app.locals.modules.bodyParser = 'body-parser'
 	app.locals.modules.expressValidator = 'express-validator'
 	app.locals.modules.passport = 'passport'
-	// Custom modules
+	// CTED modules
 	app.locals.modules.pgDB = './db/pg'
 	app.locals.modules.mongoDB = './db/mongo'
 	
@@ -215,10 +215,10 @@ function generatePakcageFile(app, name){
 	// add dependencies to the package.json
 	pkg.dependencies.winston = '~2.3.1'
 	pkg.dependencies['cookie-parser'] = '~1.4.3'
-	pkg.dependencies['jsonwebtoken'] = '~7.4.3'
+	pkg.dependencies['jsonwebtoken'] = '^8.2.2'
 	pkg.dependencies['bcryptjs'] = '~2.4.3'
 	pkg.dependencies['passport'] = '~0.4.0'
-	pkg.dependencies['passport-jwt'] = '~2.2.1'
+	pkg.dependencies['passport-jwt'] = '~2.2.1'models
 	pkg.dependencies['passport-local'] = '~1.0.0'
 	pkg.dependencies['pg'] = '~6.4.2'
 	pkg.dependencies['connect-mongo'] = '^2.0.1'
@@ -230,6 +230,7 @@ function generatePakcageFile(app, name){
 	pkg.dependencies['lodash'] = '^4.17.10'
 	pkg.dependencies['mongoose'] = '^5.1.0'
 	pkg.dependencies['winston'] = '~2.3.1'
+	pkg.dependencies['multer'] =  '^1.3.0'
 	
 	// Add scripts to package.json
 	pkg.scripts['dev']   = "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"
@@ -251,7 +252,7 @@ function createFolders(dir){
 	mkdir(dir, 'server')
 	mkdir(dir, 'client')
 	
-	// add serverside folders, common to My projects
+	// add serverside folders, common to CTED projects
 	mkdir(dir, 'server/auth')
 	mkdir(dir, 'server/bin')
 	mkdir(dir, 'server/config')
@@ -260,6 +261,8 @@ function createFolders(dir){
 	mkdir(dir, 'server/db/create')
 	mkdir(dir, 'server/helpers')
 	mkdir(dir, 'server/models')
+	mkdir(dir, 'server/models/mongo')
+	mkdir(dir, 'server/models/pg')
 	mkdir(dir, 'server/routes')
 	
 	// add clientside folders
@@ -282,11 +285,9 @@ function copyFiles(dir){
 	copyTemplateMulti('js/db/create',    dir + '/server/db/create',     '*.sql')
 	copyTemplateMulti('js/helpers',dir + '/server/helpers', '*.js')
 	copyTemplateMulti('js/controllers', dir + '/server/controllers', '*.js')
-	copyTemplateMulti('js/models', dir + '/server/models', '*.js')
+	copyTemplateMulti('js/models/mongo', dir + '/server/models/mongo', '*.js')
+	copyTemplateMulti('js/models/pg', dir + '/server/models/pg', '*.js')
 	copyTemplateMulti('js/routes', dir + '/server/routes', '*.js')
-	
-	copyTemplate('js/gitignore', path.join(dir, '/server/.gitignore'))
-	copyTemplate('txt/.env', path.join(dir, '/server/.env'))
 	
 	// clientside files
 	copyTemplateMulti('client-side/src', dir + '/client/template/src', '*.*')
@@ -298,8 +299,13 @@ function copyFiles(dir){
 	copyTemplateMulti('client-side/src/global', dir + '/client/template/src/global', '*.js')
 	
 	// common
+	copyTemplate('js/gitignore', path.join(dir, '/server/.gitignore'))
+	copyTemplate('txt/.env', path.join(dir, '/server/.env'))
 	copyTemplate('txt/README.md', dir + '/README.md')
-	copyTemplate('txt/client.bat', dir + '/client/client.bat')
+	copyTemplate('txt/clientLinux.sh', dir + '/client/clientLinux.sh')
+	copyTemplate('txt/clientMac.sh', dir + '/client/clientMac.sh')
+	copyTemplate('txt/clientWindows.bat', dir + '/client/clientWindows.bat')
+	//copyTemplateMulti('txt/*.sh', dir + '/client','*.sh')
 }
 
 function mountRoutes(app){

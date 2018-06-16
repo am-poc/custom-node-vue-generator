@@ -1,21 +1,21 @@
 <template>
     <div id="map-view" class="page-background">
-        <aa-nav-bar></aa-nav-bar>
+        <cted-nav-bar></cted-nav-bar>
         <div id="page-content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 border">
-                        <aa-search-menu></aa-search-menu>
+                        <cted-search-menu></cted-search-menu>
                     </div>
                     <div class="col-md-9 border">
-                        <aa-map-view></aa-map-view>
+                        <cted-map-view></cted-map-view>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="search-results">
-            <aa-show-data v-if="showData"></aa-show-data>
+            <cted-show-data v-bind:class="{visible: showData}" class="hidden"></cted-show-data>
         </div>
     </div>
 </template>
@@ -38,6 +38,11 @@
 </script>
 
 <style scoped>
-
+    .hidden{
+        display: none;
+    }
+    .visible{
+        display: block;
+    }
 
 </style>

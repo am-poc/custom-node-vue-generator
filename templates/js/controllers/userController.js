@@ -1,14 +1,14 @@
 const winston = require("winston")
-const Users = require("../models/User")
+const Users = require("../models/mongo/User")
 
 exports.add = function(values) {
 	return new Promise((resolve, reject)=>{
 		Users.insert(values)
 		.then((response)=>{
-			resolve(response)
+			resolve({registered: true, user: response})
 		})
 		.catch((err)=>{
-			resolve(false)
+			resolve({registered: false})
 		})
 	})
 }

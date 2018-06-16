@@ -4,7 +4,7 @@
         <div class="sidebar-header">
             <h2>Search Menu</h2>
             <!--https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-forms.php-->
-            <form id="search-form" class="text-sm-left" @submit.prevent="search" enctype="multipart/form-data">
+            <form id="search-form" class="text-sm-left"  enctype="multipart/form-data">
 
                 <div class="row">
                     <div class="form-group">
@@ -60,7 +60,7 @@
 
                 <div class="row">
                     <div class="col-md-10 text-center">
-                        <button class="btn btn-sm btn-danger uniform-width" type="submit">Search</button>
+                        <button class="btn btn-sm btn-danger uniform-width" @click.prevent="search">Search</button>
                     </div>
                 </div>
             </form>
@@ -87,16 +87,17 @@
 		methods: {
             search: function(){
 	            let uri = this.$hostname + 'admin/search'
+                const self = this
 	            this.axios.defaults.headers.common['Authorization'] = this.$store.state.token
 	            this.axios.get(uri).then((response) => {
                     //console.log(response)
 		            if(response.data && response.data.length > 0)
-			            this.data = response.data
+			            self.data = response.data
 		            else
 			            console.log(`No Data Received`)
 
 		            // add data to the event bus
-		            EventBus.$emit('searchResults', this.data)
+		            EventBus.$emit('searchResults', self.data)
 	            })
             }
 		}

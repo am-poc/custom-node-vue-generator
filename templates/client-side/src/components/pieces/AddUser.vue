@@ -4,14 +4,12 @@
             <div class="col-md-10 offset-1">
                 <br>
                 <h2 id="register-name" class="register-name-card">Register New User</h2>
-                <div id="flash-message">
-                    <span class="alert alert-success" role="alert"
-                          v-cloak v-if="registered">{{ server_response }}</span>
-                    <span class="alert alert-warning" role="alert"
-                          v-cloak v-else >{{ server_response }}</span>
+                <div id="flash-message" >
+                    <span v-if="server_response !=''" class="alert flash-message" role="alert"
+                          :class="{'alert-success': registered, 'alert-warning': !registered}" >{{ server_response}}</span>
                 </div>
 
-                <form id="register-form" class="text-sm-left" @submit.prevent="register" enctype="multipart/form-data">
+                <form class="text-sm-left register-form" @submit.prevent="register" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label for="new_username" >Username *</label>
@@ -103,48 +101,18 @@
 						this.server_response = `User '${this.newUser.username}' is Successfully Registered`
 					}else{
 						this.registered = false
-						this.server_response = `User '${this.newUser.username}' was not Successfully Registered`
-                    }
+						this.server_response = `User '${this.newUser.username}' was not Registered`
+					}
 				})
 			},
 		}
 	}
 </script>
 
-<style>
-    /*if you need a different color and gradient for a button*/
-    /*.btn.btn-register{
-        padding: 0px;
-        font-weight: 700;
-        font-size: 14px;
-        height: 36px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        border: none;
-        -o-transition: all 0.218s;
-        -moz-transition: all 0.218s;
-        -webkit-transition: all 0.218s;
-        transition: all 0.218s;
-    }
-    .btn.btn-register {
-        background-color: rgb(544, 145, 62);
-    }
-    .btn.btn-register:hover,
-    .btn.btn-register:active,
-    .btn.btn-register:focus {
-        background-color: rgb(120, 97, 33);
-    }*/
-
-    #flash-message {margin-bottom: 10px;}
-    #flash-message span,
-    #register-form input,
-    #register-form select{
-        height: 3vh;
-        padding: 5px;
-        font-size: smaller;
-        line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
-        border-radius: 3px;
-    }
+<style scoped>
+    .hidden{
+        display: none;}
+    .not-hidden{
+        display: block;}
 </style>
 

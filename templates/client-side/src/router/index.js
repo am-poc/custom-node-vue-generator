@@ -5,6 +5,7 @@ import loginPage from '@/components/pages/Login'
 import homePage from '@/components/pages/Home'
 import adminPage from '@/components/pages/Admin'
 import mapPage from '@/components/pages/MapView'
+import mapEditPage from '@/components/pages/MapEdit'
 import accessErrorPage from '@/components/pages/ErrorAccess'
 import loginErrorPage from '@/components/pages/ErrorLogin'
 
@@ -43,15 +44,25 @@ const router = new Router({
 			name: 'MapPage',
 			component: mapPage,
 			meta: {requiresAuth: true, adminAuth: false, othersAuth: true}
+		},
+		{
+			path: '/map-edit',
+			name: 'MapEditPage',
+			component: mapEditPage,
+			props: true,        // needed for the router-link url params to work
+			meta: {requiresAuth: true, adminAuth: true, othersAuth: true}
 		}
 	]
 })
 
 router.beforeEach((to, from, next)=>{
 	//console.log(to)
+	const adminPages = ['AdminPage', 'MapEditPage']
+	const userPages  = ['HomePage', 'MapPage']
+	const allowedPages = ['Login', 'AccessError','LoginError']
 	
 	// This is manual access management, using meta tags and vuex and Navigation Guards
-	if (to.name == 'Login' || to.name == 'AccessError' || to.name == 'LoginError') {
+	if (allowedPages.indexOf(to.name) > -1) {
 		next()
 	}else{
 		const user = JSON.parse(sessionStorage.getItem('user'))
@@ -61,9 +72,9 @@ router.beforeEach((to, from, next)=>{
 			to.meta.othersAuth  = user.isAuthenticated   // dont care condition right now
 			to.meta.requiresAuth = user.isAuthenticated
 			//console.log(to.meta)
-			if (to.name == 'AdminPage' && to.meta.adminAuth && to.meta.othersAuth){
+			if (adminPages.indexOf(to.name) > -1 && to.meta.adminAuth && to.meta.othersAuth){
 				next()
-			}else if (to.name== 'HomePage' || to.name== 'MapPage' && to.meta.othersAuth){
+			}else if (userPages.indexOf(to.name) > -1 && to.meta.othersAuth){
 				next()
 			}else{
 				next('access-error')

@@ -35,6 +35,8 @@
 </template>
 
 <script>
+	import slugify from 'slugify'
+
     export default {
         props:['src', 'url'],
         data(){
@@ -50,17 +52,19 @@
         },
         created() {
     		this.getData()
+
         },
         methods:{
     		getData: function(){
-			    this.endpoint = this.url + this.dataset.toLowerCase()
+			    this.endpoint = this.url + slugify(this.src.toLowerCase())
                 let uri = this.$hostname + this.endpoint
+                console.log(uri)
 			    this.axios.defaults.headers.common['Authorization'] = this.$store.state.token
                 this.axios.get(uri).then((response) => {
-
-                	if(response.data.length > 0)
+                    //console.log(response)
+                	if(response.data.length > 0){
                         this.data = response.data
-                    else
+                    } else
                     	console.log(`No Data Received`)
 			    })
             },

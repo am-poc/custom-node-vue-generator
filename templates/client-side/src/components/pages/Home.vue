@@ -1,6 +1,6 @@
 <template>
     <div id="home">
-        <aa-nav-bar></aa-nav-bar>
+        <cted-nav-bar></cted-nav-bar>
         <!--https://github.com/lukaszflorczak/vue-agile-->
         <agile :arrows="false" :speed="750" :dots="false"
                :timing="'linear'" :fade="true"
@@ -22,7 +22,7 @@
         <div id="page-content">
             <div class="logo text-center">
                 <img class="img-rounded" alt="Company Logo" src="../../assets/logo.jpg"/>
-                <h1>My App Name</h1>
+                <h1>CTED App Name</h1>
                 <h3><em>{{msg}}</em></h3><br>
             </div>
 
@@ -130,6 +130,39 @@
         -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
         -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    }
+
+    /*Device = Tablets, Ipads (portrait)*/
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        #page-content{
+            padding: 10vh 0;
+            font-size: smaller;
+        }
+        h1,h2 {
+            margin-bottom: 10px;
+        }
+        .img-rounded {
+            margin-bottom: 2vh;
+        }
+    }
+
+    /*Device = Tablets, Ipads (landscape)*/
+    @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        #page-content{
+            padding: 5vh 0;
+        }
+    }
+
+    /*Device = iPad Pro/laptop (1024 x 1366) (portrait) */
+    @media only screen and (min-width: 1025px) and (max-width: 1400px) {
+        #page-content{
+            padding: 15vh 0;
+        }
+    }
+
+    /*Device = iPad Pro/laptop (1024 x 1366) (landscape) */
+    @media only screen and (min-width: 1025px)  and (max-width: 1400px) and (orientation: landscape){
+
     }
 
 </style>

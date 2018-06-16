@@ -2,7 +2,7 @@
 <!--https://dev.to/patrickodacre/learn-vue-router-navigation-guards-vuejs-24hk-->
 <template>
     <div id="error">
-        <aa-nav-bar></aa-nav-bar>
+        <cted-nav-bar></cted-nav-bar>
         <div id="page-content">
             <div class="container">
                 <div class="card card-container">

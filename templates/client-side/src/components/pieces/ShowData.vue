@@ -58,7 +58,7 @@
 			return {
 				dataset: 'Search Results',
 				endpoint: 'admin/search',
-				pageSize:3,                 //only this needs to be edited
+				pageSize:3,
 				currentSort:'name',
 				currentSortDir:'asc',
 				currentPage:1,
@@ -148,8 +148,6 @@
         color: red;
         background: whitesmoke;
         font-size: smaller;
-
-        /*z-index: 10000;*/
     }
     .floating{
         top: 20vh;

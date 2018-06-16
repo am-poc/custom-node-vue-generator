@@ -3,7 +3,7 @@ const passport = require('passport')
 const jwt = require("jsonwebtoken")
 const bcrypt = require('bcryptjs')
 const userCtrl = require("../controllers/userController")
-const Users = require("../models/User")
+const Users = require("../models/mongo/User")
 
 exports.registerUser = async (req, res)=>{
 	let userData = req.body
@@ -11,7 +11,7 @@ exports.registerUser = async (req, res)=>{
 	userData.password = bcrypt.hashSync(userData.password, salt)
 	
 	let registered = await userCtrl.add(userData)
-	res.send({registered: registered.rowCount === 1})
+	res.send(registered)
 }
 
 exports.authenticateUser = async (req, res) => {
@@ -23,25 +23,25 @@ exports.authenticateUser = async (req, res) => {
     }
  
     try{
-	    let userRows    = await Users.findByUsername(req.body.username)
-	    let user        = userRows.rows[0]
-	    let userCount   = userRows.rowCount
-	    if (userCount === 1){
+	    let user    = await Users.findByUsername(req.body.username)
+	    if (user){
 	        let pwdCheck= bcrypt.compareSync(req.body.password, user.password)
 	    	if (pwdCheck){
 			    const token = `JWT ${jwt.sign({ id: user.gid }, process.env.AUTH_SECRET)}`
 			    const authenticatedUser = {
 				    gender: user.gender,
-				    id: user.gid,
+				    id: user._id,
 				    username: user.username,
-				    role: user.role,
+				    role: user.userType,
 				    name: `${user.firstname || ""} ${user.middlename || ""} ${user.lastname || ""}`.trim(),
 				    token
 			    }
 			    
 			    // put the user in the passport system
-			    req.login(authenticatedUser, function(err){
+			    req.login(authenticatedUser, {session: false}, function(err){
 			    	if (err)    console.log(err)
+				    
+				    console.log(req.user)
 				    res.status(200).json({authenticated: true, authenticatedUser})
 			    })
 		    }else{

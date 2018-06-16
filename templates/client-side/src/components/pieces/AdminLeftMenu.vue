@@ -9,18 +9,14 @@
 
             <!-- Sidebar Links -->
             <ul class="list-unstyled components">
-                <!--example of static menu item-->
-                <li><a href="#/home"><i class="ti-home"></i>Home</a></li>
-
-                <!--example of dynamic and collapsible menu items-->
+                <!--dynamic and collapsible menu items-->
                 <li v-for="(x, itemIndex) in sideBar" :key="itemIndex">
-                    <a @click="setActiveItemId(itemIndex)" :href="x.url">
-                        <i class="fa" :class="x.icon"></i>{{x.name}}
-                    </a>
+                    <a @click="setActiveItemId(itemIndex)" :href="x.url">{{x.name}}</a>
                     <ul :id="x.id" class="collapse list-unstyled show">
                         <transition-group name="list">
                             <li v-for="y in (activeItemId === itemIndex  && isActive ? x.children : [])" :key="y.name">
-                                <a :href="y.url" @click="setActiveChild(y.name)">{{y.name}}</a>
+                                <a :href="y.url" @click="setActiveChild(y.name)">
+                                    <i class="fa fa-angle-right"></i>{{y.name}}</a>
                             </li>
                         </transition-group>
                     </ul>
@@ -38,7 +34,67 @@
 				activeItemId: '',
 				child: '',
 				sideBar:[
+                    {
+                    	name: 'Add New Data',
+                        url: '#',
+                        children:[
+                            {
+                            	name: 'Upload GeoJSON',
+                                url: '#'
+                            },
+                            {
+                            	name: 'Add Feature Manually',
+                                url: '#'
+                            }
+                        ]
+                    },
 					{
+						name: 'Create Map from Scratch',
+						url: '#',
+						children:[
+							{
+								name: 'New Map',
+								url: '#'
+							},
+							{
+								name: 'New Layer',
+								url: '#'
+							},
+							{
+								name: 'Add Feature to Map/Layer',
+								url: '#',
+								children:[
+									{
+										name: 'Add Features from GeoJSON File',
+										url: '#'
+									},
+									{
+										name: 'Add Feature from DB',
+										url: '#'
+									}
+								]
+							}
+						]
+					},
+					{
+						name: 'View/Edit Existing Data',
+						url: '#',
+						children:[
+							{
+								name: 'All Maps',
+								url: '#'
+							},
+							{
+								name: 'All Features',
+								url: '#'
+							},
+							{
+								name: 'All GeoJSON Files',
+								url: '#'
+							}
+						]
+					},
+					/*{
 						name: 'View Existing',
 						url: '#',
 						children:[
@@ -51,24 +107,20 @@
 								url: '#'
 							}
 						]
-					},
+					},*/
 					{
-						name: 'Add New',
+						name: 'Manage Users',
 						url: '#',
 						children: [
 							{
-								name: 'User',
+								name: 'All Users',
 								url: '#',
 							},
-							{
-								name: 'Session',
-								url: '#'
+                            {
+								name: 'Add New',
+								url: '#',
 							}
 						]
-					},
-					{
-						name: 'Other Actions',
-						url: '#/other'
 					}
 				]
 			}
@@ -105,7 +157,11 @@
         width: 100%;
         color: #fff !important;
     }
+    .components li{margin: 1vh 0;}
     .collapse li{padding-left: 1.5vw;}
     .collapse.show {display: block;}
     .collapse {display: none;}
+    i{
+        margin-right: 1vw;
+    }
 </style>

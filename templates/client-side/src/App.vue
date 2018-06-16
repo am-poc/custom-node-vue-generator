@@ -1,18 +1,20 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
 
         <footer class="footer is-primary">
             <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <p>Copyright © 2015 - 2018 Ash Martin, Brighton, CO. All rights reserved. </p>
-                    </div>
-                    <div class="column has-text-right">
+                <div class="row">
+                    <div class="col-md-12">Copyright © 2015 - 2018 CTED, NYU Abu Dhabi, UAE. All rights reserved. </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col-md-12">
                         <a class="icon" href="#"><i class="fa fa-facebook"></i></a>
                         <a class="icon" href="#"><i class="fa fa-twitter"></i></a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </footer>
     </div>
@@ -21,11 +23,11 @@
 <script>
 	export default {
 		name: 'AppName',
-        data(){
+		data(){
 			return{
 
-            }
-        }
+			}
+		}
 	}
 </script>
 
@@ -47,7 +49,9 @@
         font-size: larger;
     }
     h3,h4,h5{font-size: small;}
+
     .uniform-width{ width: 10vw; }
+    .no-padding{padding: 0 !important;}
 
     /*agile slideshow
     (doesnt make sense to me for it to be here. it should be in the home.vue but then it doesnt work!)*/
@@ -73,12 +77,10 @@
         top: 5vh;
         height: 90vh;
         padding: 3vh 0;
-
-        /*border: 1px solid red;*/
         background:rgba(0, 0, 0, 0.5);
         color:#f1f1f1;
     }
-    .page-height{min-height: 80vh;}
+    .page-height{min-height: 82.5vh;}
     .border{
         border: 1px solid;
         -webkit-border-radius: 5px;
@@ -86,6 +88,86 @@
         border-radius: 5px;
         margin: 0 auto;
     }
+
+    /*
+     * Card component
+     */
+    .card {
+        background-color: #F7F7F7;
+        /* just in case there no content*/
+        padding: 20px 25px 30px;
+        /*margin: 20vh auto;*/
+        /* shadows and rounded borders */
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+    .card-container.card {
+        padding: 10px 20px;
+        min-height: 29vh;
+        margin-top: 2vh;
+    }
+    .profile-img-card {
+        width: 140px;
+        margin: 3vh auto;
+        display: block;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 5%;
+    }
+    .register-name-card,
+    .profile-name-card {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px 0 10px;
+        min-height: 1em;
+    }
+
+    /*Forms*/
+    .flash-message {
+        margin-bottom: 10px;
+    }
+    .flash-message,
+    .register-form input,
+    .register-form select {
+        max-height: 3vh;
+        padding: 5px;
+        font-size: smaller;
+        line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+        border-radius: 3px;
+
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .register-form textarea{
+        padding: 5px;
+        font-size: smaller;
+        line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+        border-radius: 3px;
+
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /*end of Forms*/
+
+    /*Custom scrollbar styling for webkit browsers (Chrome, Opera)*/
+    ::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+        background-color: #F5F5F5;
+    }
+
+    ::-webkit-scrollbar-track {background-color: #F5F5F5;}
+    ::-webkit-scrollbar-thumb {background-color: rgba(191,191,191,1);}
+    ::-webkit-scrollbar-thumb:hover {background-color: rgba(191,191,191,1);}
+
+
     /*footer*/
     .footer{
         position: fixed;

@@ -1,4 +1,5 @@
 const express = require('express')
+const passport = require('passport')
 const authCtrl = require('../controllers/authController')
 const router = new express.Router()
 /*
@@ -11,11 +12,11 @@ https://www.codementor.io/kgasta/nodejs-authentication-methods-e0c0i6k40
 (jwt, bcrypt, passport)
 There are two concepts to remember:
 1. User Authentication
-1.1 a user needs to login and authenticated. This is done in a vanilla fashion (find username in database, then compare passwords). We need bcrypt to create/compare password hashes.
-1.2. user loin/authentication could be token-based in which case we need the JWT package too, or it could be session based.
+	1.1 a user needs to login and authenticated. This is done in a vanilla fashion (find username in database, then compare passwords). We need bcrypt to create/compare password hashes.
+	1.2. user loin/authentication could be token-based in which case we need the JWT package too, or it could be session based.
 2. Resource Authorization
-2.1 API endpoints need to be secured. This is done with the help fo 'passport'. Essentially, each time an endpoint is requested, the user is checked to be authenticated.
-2.2. BUT user authentication can be done using passport too!
+	2.1 API endpoints need to be secured. This is done with the help fo 'passport'. Essentially, each time an endpoint is requested, the user is checked to be authenticated.
+	2.2. BUT user authentication can be done using passport too!
 */
 
 /*jsonwebtoken vs passport-jwt
