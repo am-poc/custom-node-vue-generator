@@ -1,6 +1,6 @@
 [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 
-Custom Express application generator.
+Custom Express application generator (Being Developed by Afshan Aman starting April 2018)
 
 This repo belongs to the Custom Express App Generator.
 This custom generator creates a template project with two parts:
@@ -29,7 +29,7 @@ $ npm install -S -g "https://github.com/afshanaman81/custom-node-vue-generator.g
 2. cd to that folder
 3. generate your custom project as follows:
 ```sh
-$ cted-express
+$ aa-express
 ```
 
 ## Next Steps
